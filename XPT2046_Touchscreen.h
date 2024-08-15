@@ -61,6 +61,7 @@ public:
 	bool bufferEmpty();
 	uint8_t bufferSize() { return 1; }
 	void setRotation(uint8_t n) { rotation = n % 4; }
+	void setSensivity(uint16_t z_thr, uint16_t z_thr_time) { _threshold = z_thr; _threshold_time = z_thr_time;}
 // protected:
 	volatile bool isrWake=true;
 
@@ -70,6 +71,8 @@ private:
 	int16_t xraw=0, yraw=0, zraw=0;
 	uint32_t msraw=0x80000000;
 	SPIClass *_pspi = nullptr;
+	uint16_t _threshold;
+	uint16_t _threshold_time;
 #if defined(_FLEXIO_SPI_H_)
 	FlexIOSPI *_pflexspi = nullptr;
 #endif
