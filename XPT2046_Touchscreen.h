@@ -71,8 +71,8 @@ private:
 	int16_t xraw=0, yraw=0, zraw=0;
 	uint32_t msraw=0x80000000;
 	SPIClass *_pspi = nullptr;
-	uint16_t _threshold;
-	uint16_t _threshold_time;
+	uint16_t _threshold = 300;
+	uint16_t _threshold_time = 3;
 #if defined(_FLEXIO_SPI_H_)
 	FlexIOSPI *_pflexspi = nullptr;
 #endif
